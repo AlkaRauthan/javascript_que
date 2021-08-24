@@ -43,4 +43,6 @@ MathStudent.prototype = Student.prototype;
 var m = new MathStudent("A","B",44,99);
 
 console.log(m.getFullName()); // prints ALKA in MATH CLASS since this method is present in math student class
-console.log(m.getSubjectWithName()); //
+console.log(m.getSubjectWithName()); 
+//"ALKA in MATH CLASS of any class" uses getFullName of MathStudent since it is present in base class and getSubjectWithName is searched in prototype chain and 
+//used.

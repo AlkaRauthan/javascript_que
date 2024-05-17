@@ -1,0 +1,87 @@
+Javascript is a synchronous single threaded language.
+to access browser functionalities like timer, DOM, localstorage and location from call stack webapis are used.
+call stack can use these webapi due to global context (window).
+
+Web APIs
+* setTimeout() - Access to Browser timer
+* DOM APis - access to browser DOM
+* fetch() - connection to external server
+* localstorage
+* console
+* location
+
+- Call stack
+- Callback queue
+- Microtask queue - similar to callback queue but has higher priority also called TASK QUEUE
+- Event loop
+
+Event loop and call backqueue
+
+console.log("Start")
+setTimeout(function cb(){
+  console.log("Callback");
+},5000);
+console.log("End")
+
+-Outputs 
+  Start
+  End
+  Callback
+
+-after the timer expires for setTimeout callback function cb is placed in callbackqueue.
+-job of the event loop is to check the callback queue and pushes the callback function in call stack to execute.
+
+Similiar to setTimeout, addEventListener attaches or registers the event with callback function and resides in WebApi zone waiting for event to occur
+once the event is triggered, callback function is moved to callback queue
+event loops keeps on tracking the status of call stack whether call stack is empty or not and callback queue has some callback function
+as soon as it finds the callback function in queue, and finds call stack to be empty, callback function is pushed to call stack and executed also the callback queue is emptied.
+
+
+Fetch Api -
+
+fetch("https://api.netflix.com)
+.then(function cbF(){
+  console.log("CB netflix")
+})
+
+-cbF callback function is registered in Web API and wait for the fetch to complete
+- when fetch is complete callback is pushed to microtask queue which takes higher priority than callback queue and get pushed to callstack by event loop before callback queue.
+
+---All the callback functions which comes through promises and mutation observers, goes through microtask queue
+--- Starvation of the callback queue,when one microtask is creating another microtask, callback function from callback queue is not picked up until microtask queue is empty and 
+creates startvation of the callback queue.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Call Stack:
+
+The call stack is a data structure that keeps track of the function calls in your code. It follows the Last In, First Out (LIFO) principle,
+meaning the last function that gets pushed onto the stack is the first one to be popped off when the function completes.
+
+Callback Queue (Task Queue):
+
+The callback queue, also known as the task queue, holds tasks (callbacks or events) that are ready to be executed. 
+These tasks usually come from asynchronous operations, such as DOM events, HTTP requests, or timers.
+
+Event Loop:
+
+The event loop is responsible for continuously checking the call stack and the callback queue.
+If the call stack is empty, the event loop takes the first task from the callback queue and pushes it onto the call stack for execution.
+Microtask Queue:
+
+The microtask queue holds tasks that are also ready to be executed but has a higher priority than the callback queue.
+Microtasks are usually scheduled by JavaScript promises, mutation observers, and other similar mechanisms.
+Here's how they work together:
+When an asynchronous operation is encountered, such as a setTimeout or a Promise, 
+the callback associated with that operation is sent to the callback queue after the specified time or when the Promise settles.
+
+When the call stack is empty (no functions being executed), the event loop takes the first task from the microtask queue and pushes it onto the call stack.
+
+If the microtask queue is empty, the event loop looks at the callback queue and pushes the first task onto the call stack.
+
+This process repeats, allowing JavaScript to handle asynchronous operations without blocking the main thread.
+
+Understanding these concepts is crucial for writing efficient and responsive asynchronous JavaScript code, as it helps you manage the order of execution and prevent blocking the user interface.
+
+
+
+

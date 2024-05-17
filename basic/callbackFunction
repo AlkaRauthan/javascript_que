@@ -1,0 +1,27 @@
+//Callback function
+- with callback functions we can perform async operations in synchronous single threaded language.
+  function x(y){
+    
+  }
+  x(function y(){
+  })
+
+setTimeout(function(){
+  console.log("timer");
+},1000);
+
+function attachEventLister(){
+  let count = 0
+  document.getElementById("clickMe").addEventListener('click',function xyz(){
+    console.log(++count);
+  })
+}
+attachEventListener();
+-It is very important to removeEventListener as event listeners consume a lot of memory because of closures.
+  since the closures keep the lexical scope of surrounding environment and the memory is not freed even though it is not getting used.
+
+1. Function that is passed on as argument to another function is called callback function.
+2. setTimeout helps turn JS which is sinhlethreaded and synchronous into asynchronous.
+3. Event listeners can also invoke closures with scope.
+4. Event listeners consume a lot of memory which can potentially slow down the website therefore it is good practice to remove if it is not used.
+

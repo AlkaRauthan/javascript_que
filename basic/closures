@@ -1,0 +1,43 @@
+function x(){
+  var a=7;
+  function y(){
+    console.log(a);
+  }
+  y();
+}
+x();
+closure - a function along with its lexical environment bundled together forms closure.
+  Closure gives access to an outer function's scope from an inner function.
+  Scope Closure
+
+
+Uses of Closures -
+  Module Design Pattern
+  Currying
+  Functions like once
+  memoize
+  maintaining state in async world
+  setTimeouts
+  Iterators
+  data hiding encapsulation
+
+A closure gives access to all the variables of it's parent function even after the that parent function has returned or executed. 
+The function keeps a refernce to it's outer scope which preserves the scope chain throughout the time
+
+function x(){
+  var i = 1;
+  setTimeout(function(){
+        console.log(i)             
+  },1000
+   console.log("Namaste JS")                  
+}
+      Namste JS
+-- print 1 after 1 second
+
+1. An inner function can be directly called using two parenthesis ()().
+2. Even parameters can be passed this way (Remember that the function needs to be returned to do this)
+3. Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
+4. Unused variables are automatically deleted in High Level Programming language by garbage collector. Closures allocate a lot of memory which cannot be deleted so this acts as a disadvantage.
+5. Some browsers now have smart garbage collectors that automatically deletes variables that are not used outside closures.
+
+

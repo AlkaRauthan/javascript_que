@@ -1,0 +1,23 @@
+Execution context has two component
+1)memory component[variable environment] 
+-This is the place where all variables and functions are stored as key value pairs. eg-{key: value ||  n:2;} 
+
+ 2)code component[Thread of execution]
+-This is the place where code is executed one line at a time
+
+Note-*JavaScript is a synchronous single-threaded language
+
+-Single threaded means JavaScript can execute once command at a time
+-Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
+
+  1. Memory Creation Phase: This is where all the variables and functions are stored in the memory and all the variables are assigned an undefined placeholder. All the functions keep the entire function code.
+variable: undefined
+function: function code block
+
+2. Code Execution Block: This is where all the code is run one line at a time in a synchronous manner. All the assignments, calculations and logical part is executed here.
+Another thing about functions is that JavaScript ignores the function until it is invoked and when a function a invoked, a new temporary Execution Context is created specially for this function. 
+It remains active until the function executes and is deleted after its work is done.
+Since we can have multiple nested function calls hence JavaScript uses a Call Stack to maintain the order of functions and Execution Contexts. 
+A new EC is inserted when a function is called and popped when that function is executed.
+
+Call Stack goes by many names such as Execution Context Stack, Program Stack, Control Stack etc

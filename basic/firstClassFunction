@@ -1,0 +1,3 @@
+anonymous function - function without name ex: function(){};
+function expression - var b= function(){}
+function declaration/statment - function x(){}

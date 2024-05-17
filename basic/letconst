@@ -1,0 +1,41 @@
+Temporal dead zone
+
+let and cost are hoisted but different than var.
+var is hoisted and attached memory in Global context whereas for let and const memory is reserved but not in global context.
+it is stored inside Script context(Seperate memory space) which cannot be accessed before initialization.
+let a = 10;
+var b = 20
+
+Before execution of JS - 
+    Global {b: undefined}
+    Script {a: undefined}
+
+Temporal dead zone is the time between a let/const variable is hoisted and the value is assigned a value;
+ console.log(a) before initialization - gives Reference error: cannot access a before initialization
+console.log(x) - Reference error - x is not defined
+to avoid temporal dead zone good practice is to declare let and const variables at the top. That would shrink the temporal dead zone.
+
+Block is defined by {} - used for combining multiple javascript statements.
+Block is seperate scope like Script 
+{
+  let b = 20;
+  const c = 30
+}
+Scope - Block - b undefined 
+c undefined
+
+Shadowing - 
+var a = 100;
+let b = 100;
+{
+  var a = 10;
+  let b = 20;
+  const c =30
+  console.log(a) -- 10
+  console.log(b) - 20
+}
+console.log(a) --- again it will print 10 
+console.log(b) -- prints 100 because let and const are block scoped and outer b is stored in Script scope
+this is happening because both are referring to the same variable while modifying it is modifying the global space a value only.
+
+  

@@ -1,0 +1,23 @@
+Javascript can run in browser, server, watch and robot. It is possible due to Javascript Runtime Environment
+- JS Engine
+- API
+- callback queue
+- event loop
+- microtask queue
+
+NodeJs - Javascript runtime  built on Chrome's V8 JavaScript engin. Used to run javascript outside browser.
+V8 is written in C++;
+
+- Parsing
+    code is parsed and converted to token.
+    Syntax parse- Abstract syntax parser
+    AST is passed to compliation phase
+- Compilation
+    Interpeter converts to byte code
+- Execution
+
+Garbage collector - 
+  Mark and sweep algorithm- 
+    All objects are marked as 0 initially (at creation) and in mark phase the objects that will be accessible are marked as 1 (reachable) by a DFS graph traversal.
+    During sweep phase, the objects marked with 0 are removed from heap memory. and also all reachable objects are again initialized with 0 (made unreachable) because the algorithm will run again.
+    So, it's basically tracing garbage collector concept. :)

@@ -1,0 +1,65 @@
+A function which takes another function as an argument or returns a function from it is higher order function.
+Higher-order functions are only possible because of the First-class function.
+
+A programming language is said to have First-class functions if functions in that language are treated like other variables. 
+So the functions can be assigned to any other variable or passed as an argument or can be returned by another function.
+JavaScript treats function as a first-class citizen. This means that functions are simply a value and are just another type of object.
+
+function x(){
+  console.log("Xyz")
+}
+
+function y(x){
+  x()
+}
+y here is a higher order function and x is the callback function
+
+const greet =  function(name){
+    return function(m){
+  
+        console.log(`Hi!! ${name}, ${m}`);
+    }
+}
+
+const greet_message = greet('ABC');
+greet_message("Welcome To GeeksForGeeks")
+
+1. Follow DRY(Don't Repeat Yourself) principle while coding.
+2. Use function to stop writing repeating line of codes.
+3. Function that takes another function as argument(callback function) is known as Higher order functions.
+4. It is this ability that function can be stored, passed and returned,  they are called first class citizens.
+5. If we use Array.property.function-name. This function is accessible to any array in your code.
+
+const radius = [4,3,2,6];
+const area = function(radius){
+  return Math.PI * radius * radius;
+}
+
+const calculate = function(radius,logic){
+  let outputs = [];
+  for(let i = 0: i < radius.length; i++){
+    outputs.push(logic(radius[i])
+  }
+  return outputs;
+}
+
+console.log(calculate(radius,area));
+
+calculate is higher order function and area is callback function. with this we can make the code reusable. let's say if we have to calculate circumference we can do so by creating a function 
+for it.
+
+It is similiar to higher order function map
+radius.map(area)
+
+to make our function calculate to work the same we need to use Array.Protoype
+  Array.protoype.calculate = function(logic){
+  let outputs = [];
+  for(let i = 0: i < this.length; i++){
+    outputs.push(logic(this[i])
+  }
+  return outputs;
+}
+//now we can use it like this
+radius.calculate(area)
+
+  

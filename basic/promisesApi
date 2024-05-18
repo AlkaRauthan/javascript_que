@@ -1,0 +1,21 @@
+Promise.All -
+  for parallel api calls, to handle multiple promises
+  it take array as input
+
+  Promise.All([p1,p2,p3]) - will return values of the promises 
+  -it will give result only if all the apis are finished, it will wait for all the apis to finish
+  - as soon as any of the promise is rejected, outside of promise.all would error out
+  - promises cannot be cancelled so rest of the promises will resolve/reject but promise.all would have already failed once first promise was rejected.
+
+  Promise.allSettled([p1,p2,p3])
+    - for success scenario it is similar to Promise.All
+    - but for failure case it will wait for all promises to get settled(resolve/reject) and give reach of each promise in [val1,val2,val3]
+
+  Promise.race([p1,p2,p3])
+    - as soon as one of the promise is settles, it will give result of that promise. let's say p2 is fullfild it will give value in value2.
+    - return the result of first settled promise, will not wait for other promises to finish.
+
+  Promise.any([p1,p2,p3])
+    - it will wait for any of the promise to get settled sucess
+    - success seeking race
+    - if everything fails, returned result will be an aggregated error, error of all the errors

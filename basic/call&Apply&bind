@@ -1,3 +1,6 @@
+Call is a function that helps you change the context of the invoking function. In layperson's terms,
+it helps you replace the value of this inside a function with whatever value you want.
+
 let name = {
     firstname:"alka",
     lastname:"rauthan",

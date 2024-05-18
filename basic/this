@@ -1,0 +1,78 @@
+//this in global space
+this - window object // represents the global object
+
+//inside a function
+function x(){
+  console.log(this) --logs window object // in case of strict mode it will be undefined
+}
+x()
+
+//this in strict mode - (this substitiution)
+ - in non strict mode, if the value of this is undefined or null, this will replaced with global object in case of browser it is window object
+ - in strict mode, in case of function it would depend on the left side of function call. since there is nothing on left that's why it would undefined
+ - if we call window.x() then this would logs this to window
+ - value of this is determined by how the function is called.
+
+//this inside a object's method
+const obj = {
+  a: 10,
+  x: function(){
+    console.log(this)
+  } //x is a method of object obj
+}
+obj.x(); -- this keyword here would be obj
+
+//call, apply and bind methods
+ - used for sharing method
+ - let's say if we want to share x method, we can do so by using call apply bind
+  - is used to override the value of this
+
+const obj2 = {
+  a: 20
+}
+now if we want to call x method on obj2 how can we do that
+obj.x.call(obj2) -- value of this would be obj2
+
+//this inside a arrow function
+-arrow functions don't have their own this binding
+- they take this based on enclosing lexical context
+
+const obj = {
+  a: 10,
+  x: () =>{
+    console.log(this) //value would be window object 
+  } 
+}
+
+const obj2 = {
+  a: 10,
+  x: function(){
+    const y = () => {
+      console.log(this) -- would log obj2 with its value
+    }
+    y();
+  } 
+}
+obj2.x();
+
+//this inside DOM elements => reference to HTMLelement
+
+
+JavaScript's "this" keyword can be confusing for many and behaves differently in various scenarios.
+The behavior of the "this" keyword depends on the context, such as whether it's in a function, global space, or an arrow function.
+In the global space, the value of "this" is the global object, which can vary depending on the JavaScript runtime environment (e.g., window in browsers, Global in Node.js).
+Inside a function, the value of "this" can be undefined in strict mode or the global object in non-strict mode.
+JavaScript uses a mechanism called "this substitution," where "this" is replaced with the global object when it's undefined or null in non-strict mode.
+Inside an object's method, "this" refers to the object itself where the method is called.
+"call," "apply," and "bind" are important functions used to manipulate the value of "this" when calling methods and sharing them between objects.
+It's essential to understand "call," "apply," and "bind" to effectively control the value of "this" in JavaScript methods.
+In global space, the 'this' keyword refers to the global object (e.g., 'window' in the browser).
+In strict mode, 'this' inside a function is undefined; in non-strict mode, it refers to the global object.
+Understanding "this" substitution: When 'this' is undefined or null inside a function, it becomes the global object.
+Inside an object's method, 'this' refers to the object itself.
+The 'call' method can be used to invoke a function with a specific 'this' context.
+Arrow functions do not have their own 'this' binding and take the value of the enclosing lexical context.
+In the context of DOM elements, 'this' refers to the specific HTML element being interacted with.
+
+
+

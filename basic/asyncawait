@@ -11,3 +11,22 @@ const asynFunction = x();
 console.log(asyncFunction) -- logs Promise {<"Fullfilled">: "hello"}
 
 asyncFunction.then((res) => console.log(res)) -- logs String hello
+
+await
+ -async await is used to handle promises
+ - can only be used inside an async function
+ - await will  wait for promise to settle, and go the next line only when the promise is resolved.
+ - suspends the function execution until the awaited promise is settled.
+
+const p = new Promise((resolve,reject) => { resolve("Promise Resolved value")})
+async function handlePromise(){
+ const val = await p; -- val will contain "Promise Resolve value"
+}
+- need to use try catch block to handle error ini case async await
+
+try {
+ await p;
+}
+catch(err){
+ console.log(err);
+}

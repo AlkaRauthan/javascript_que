@@ -1,0 +1,43 @@
+let name = {
+    firstname:"alka",
+    lastname:"rauthan",
+    printFullName: function(){
+        console.log(this.firstname + "" + this.lastname)
+    }
+}
+name.printFullName();
+
+let name2 = {
+    firstname: "test",
+    lastname: "user"
+}
+name.printFullName.call(name2)
+
+//function borrowing
+
+let object = {
+    firstname: "alka",
+    lastname: "rauthan"
+}
+
+let printFullName = function(){
+    console.log(this.firstname,this.lastname)
+}
+
+printFullName.call(object);
+
+let printFullNameWithHometown = function(homwtown){
+    console.log(this.firstname,this.lastname, homwtown)
+}
+printFullName.call(object, "Rishikesh");
+
+// in similiar function if we have to pass multiple values we can use apply
+- only difference is the way we pass arguments
+
+printFullName.apply(object,["Mumbai"])
+
+//bind method 
+- it will return a new function
+
+const a = printFullName.bind(object,"Rishikesh") //doesnt call the method, but returns a function which can be invoked later
+a();

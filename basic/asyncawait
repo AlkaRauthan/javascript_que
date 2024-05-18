@@ -1,0 +1,13 @@
+async
+ - async function is used to perform asynchronous operaion
+- always returns a promise, even if we simply return a string from async function
+- if promise is returned from async function, then it is not wrap again in a promise
+
+async function x(){
+  return "hello"
+}
+
+const asynFunction = x();
+console.log(asyncFunction) -- logs Promise {<"Fullfilled">: "hello"}
+
+asyncFunction.then((res) => console.log(res)) -- logs String hello

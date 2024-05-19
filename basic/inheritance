@@ -1,0 +1,3 @@
+let arr = ["alka","sanjeet"];
+
+arr.__proto__

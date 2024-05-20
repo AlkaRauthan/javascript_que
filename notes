@@ -1,0 +1,31 @@
+•	Everything in JavaScript happens inside an "execution context". Execution context has two component
+•	 1) memory component[variable environment] -This is the place where all variables and functions are stored as key value pairs. eg-{key: value || n:2;} 
+•	2) code component[Thread of execution] -This is the place where code is executed one line at a time Note- *JavaScript is a synchronous single-threaded language -Single threaded means 
+•	JavaScript can execute once command at a time -Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
+1. When JavaScript code is executed, Execution Context is created and it is called Global Execution Context.
+ 2. JavaScript program is executed in TWO PHASES inside Execution Context a. MEMORY ALLOCATION PHASE - JavaScript program goes throughout the program and allocate memory of Variables and Functions declared in program. b. CODE EXECUTION PHASE - JavaScript program now goes throughout the code line by line and execute the code. 
+3. A Function is invoked when it is called and it acts as another MINI PROGRAM and creates its own Execution Context. 
+4. Returns keyword return the Control back to the PREVIOUS Execution-Context where the Function is called and Execution Context of the Function is DELETED. 
+5. CALL STACK maintains the ORDER of execution of Execution Contexts. It CREATES Execution Context whenever a Program starts or a Function is invoked and it pops out the Execution Context when a Function or Program ENDS.
+
+Hoisting in JavaScript is a process in which all the Variables, Functions and Class definition are declared BEFORE execution of the code 
+3. Variables are initialized to UNDEFINED when they are declared and Function definition is stored AS IT IS. 
+4. They are declared in Memory Allocation Phase in the Memory Component of Execution Context, so we can use them even BEFORE they are declared.
+
+
+Lexical environment = EC's Local Memory + Reference to Lexical Environment of its parent. 
+1) Lexical Environment of its parent is the scope where a function is physically present or defined. So, suppose a function x(), is defined and invoked in the GEC, when function x()'s EC is pushed in the call stack, it stores a reference to its parent's lexical environment i.e. the GEC's memory.
+ 2) Whenever a new Execution Context is pushed in the Call Stack it holds a reference to the Lexical Environment of its parent, i.e. the EC's memory from where it was invoked. 
+3) Global execution context holds reference to null. 
+4) Javascript engine first looks for the variable/function being accessed in the local scope of the function, and if not found, it keeps on searching the lexical environment of its parent until it finds the variable/function being accessed. 
+5) The mechanism mentioned in point 4 above is called SCOPE CHAIN. 
+6) If the variable accessed is not found in the Scope Chain, then you will get the variable is not defined error in the browser's console.
+
+
+1)	let and const are hoisted but its memory is allocated at other place than window which cannot be accessed before initialisation. 
+2)	2. Temporal Dead Zone exists until variable is assigned a value.
+3)	 3. window.variable OR this.variable will not give value of variable defined using let or const.
+Block :- It is used to combine multiple statement into one statement so that we can use it at those places where javascript expects to have single statement.
+ Scope :- scope of a variable or a function is the place where these are accessible. 
+Block scope :- The variables and function present within the scope of a block section. And block follows the lexical scope chain pattern while accessing the variable. 
+Shadowing :- Providing same name to the variable as of those variable which are present in outer scope.

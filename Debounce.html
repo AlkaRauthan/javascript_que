@@ -8,6 +8,15 @@
 /* Debouncing is a programming practice used to ensure that time-consuming tasks do not fire so often, 
 that it stalls the performance of the web page. In other words, it limits the rate at which a function gets invoked. */
 
+/* Throttle (1 sec): Hello, I am a robot. As long as you keep pinging me, I will keep talking to you, but after exactly 1 second each. 
+If you ping me for a reply before a second is elapsed, I will still reply to you at exactly 1 second interval. In other words, I just love to reply at exact intervals.
+
+Debounce (1 sec): Hi, I am that ^^ robot's cousin. As long as you keep pinging me, I am going to remain silent because 
+I like to reply only after 1 second is passed since the last time you pinged me. I don't know, 
+if it is because I have an attitude problem or because I just don't like to interrupt people. In other words, if you keep asking me for replies before 1 second is elapsed
+since your last invocation, you will never get a reply. Yeah yeah...go ahead! call me rude.
+*/
+
     function debounce(fn, timeout = 300) {
         let timer;
         let context = this;
@@ -32,6 +41,35 @@ that it stalls the performance of the web page. In other words, it limits the ra
         const debouncedFunction = debounce(saveInput,3000);
         debouncedFunction();
     }
+
+function debouneSecond(fn,delay){
+    let timer;
+    return function(){
+        let context = this;
+        let args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            fn.apply(context,args);
+        },delay)
+    }
+}
+
+function throttle(fn,delay){
+    let flag = true;
+    return function(){
+        let context = this;
+        const args = arguments;
+
+        if(flag){
+            fn.apply(context,args)
+            flag = false;
+        }
+
+        setTimeout(function(){
+            flag = true;
+        }, delay)
+    }
+}
 
 
 </script>

@@ -32,3 +32,27 @@ let curried = curry(multiply);
 console.log(curried(1, 2, 3));  
 console.log(curried(1)(2, 3));   
 console.log(curried(1)(2)(3));  
+
+
+function sum(a,b){
+    return a+b
+}
+
+function multiply(a,b){
+    return a*b
+}
+
+function operation(fn){
+    return function(a){
+        return function(b){
+            fn(a,b)
+        }
+    }
+}
+
+operation(sum)(1)(2) 
+operatin(multiply)(5)(5)
+
+real use-
+    const mult100 = operation(multiply)(100);
+   mult100(5) // became configurable function which will multiple argument passed into it will be multiplied by 100

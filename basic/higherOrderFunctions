@@ -62,4 +62,13 @@ to make our function calculate to work the same we need to use Array.Protoype
 //now we can use it like this
 radius.calculate(area)
 
+
+Array.prototype.newmap = function(callbackFn){
+  const outputs = [];
+  for(let i =0; i < this.length: i++){
+    ouputs.push(callbackFn(this[i))
+  }
+  return outputs;
+}
+
   

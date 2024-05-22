@@ -1,3 +1,6 @@
+it is a technique for converting function calls with multiple arguments into chains of function calls with a single argument for each call,
+but JavaScript supports multiple arguments in a single function call.
+    
 function multiply(a, b, c) {
 
     return a * b * c;

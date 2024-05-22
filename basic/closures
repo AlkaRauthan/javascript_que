@@ -103,3 +103,13 @@ Closures help in maintaining the state between function calls without using a gl
 54
 270
 
+function counter(){
+  let count =0;
+  return function icrementCounter(){
+    count++;
+    console.log(count);
+  }
+}
+const counter1 = counter();
+counter1.icrementCounter();
+

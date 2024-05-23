@@ -1,0 +1,27 @@
+Behavioral patterns control communication and the assignment of responsibilities between different objects.
+Chain of Responsibility Pattern
+Iterator Pattern
+Observer Pattern
+
+Chain of Responsibility Pattern
+A typical front-end app that consumes an API could work as an example:
+
+We have a function responsible for rendering a UI component.
+Once rendered, a another function makes a request to an API endpoint.
+If the endpoint response is as expected, the information is passed to another function that sorts the data in a given way and stores it in a variable.
+Once that variable stores the needed information, another function is responsible of rendering it in the UI.
+We can see how here we have many different entities that collaborate to execute a certain task. 
+Each of them is responsible for a single "step" of that task, which helps with code modularity and separation of concerns.
+
+Iterator pattern
+
+The iterator is used to traverse elements of a collection. 
+This might sound trivial in programming languages used nowadays, but this wasn't always the case.
+
+Anyway, any of the JavaScript built in functions we have at our disposal to iterate over data structures 
+(for, forEach, for...of, for...in, map, reduce, filter, and so on) are examples of the iterator pattern.
+
+Observer Pattern
+The observer pattern lets you define a subscription mechanism to notify multiple objects 
+about any events that happen to the object they’re observing. Basically, 
+it's like having an event listener on a given object, and when that object performs the action we're listening for, we do something.

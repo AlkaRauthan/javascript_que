@@ -42,6 +42,30 @@ for (let i = 0; i < 5; i++) {
   elem.appendChild(btn);
 }
 
+function x(){
+    for(var i=0; i <10 ; i++){
+        setTimeout(function(){
+            console.log(i)
+        })
+    }
+}
+x(); -- logs 10 - 10 times
+
+- can be solved with using let
+
+
+function x(){
+    for(var i=0; i <10 ; i++){
+        function y(i){
+            setTimeout(function(){
+                console.log(i)
+            })
+        }
+        y(i)
+    }
+}
+x(); -- logs 0 1 2 3 4 5 6 7 8 9
+
 </script>
 
 </body>

@@ -1,0 +1,5 @@
+(true + false) > 2+ true --false
+
+var func = function func(){ console.log(func === func)}; func(); --- true
+
+Number("1") - 1 == 0

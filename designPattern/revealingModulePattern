@@ -1,0 +1,40 @@
+The main difference being that we write all object’s logic on the private scope and then expose what we want trough an anonymous object.
+We can also change the private member's names when we map then to the public ones.
+
+let fruitsCollection = (() => {
+    // private
+    let objects = [];
+ 
+    const addObject = (object) => {
+        objects.push(object);
+    }
+ 
+    const removeObject = (object) => {
+        let index = objects.indexOf(object);
+        if (index >= 0) {
+            objects.splice(index, 1);
+        }
+    }
+ 
+    const getObjects = () => JSON.parse(JSON.stringify(objects))
+ 
+    // public
+    return {
+        addName: addObject,
+        removeName: removeObject,
+        getNames: getObjects
+    };
+})();
+ 
+fruitsCollection.addName("Bob");
+fruitsCollection.addName("Alice");
+fruitsCollection.addName("Frank");
+ 
+// prints: ["Bob", "Alice", "Frank"]
+console.log(namesCollection.getNames());
+ 
+namesCollection.removeName("Alice");
+ 
+// prints: ["Bob", "Frank"]
+console.log(namesCollection.getNames());
+

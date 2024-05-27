@@ -1,0 +1,50 @@
+// We use a immediately invoked function to create
+// a private variable counter
+var counterIncrementer = (() => {
+    let counter = 0;
+    return function() {
+        return ++counter;
+    };
+})(); // these () in the end make this a immediately invoked function
+
+// prints: 1
+console.log(counterIncrementer());
+// prints: 2
+console.log(counterIncrementer());
+// prints: 3
+console.log(counterIncrementer());
+
+
+// Using a closure we will expose an object
+// as part of a public API that manages its
+// private parts
+let fruitsCollection = (() => {
+    // private
+    let objects = [];
+ 
+    // public
+    return {
+        addObject: (object) => {
+            objects.push(object);
+        },
+        removeObject: (object) => {
+            let index = objects.indexOf(object);
+            if (index >= 0) {
+                objects.splice(index, 1);
+            }
+        },
+        getObjects: () => JSON.parse(JSON.stringify(objects))
+    };
+})(); // notice the execution
+ 
+fruitsCollection.addObject("apple");
+fruitsCollection.addObject("orange");
+fruitsCollection.addObject("banana");
+ 
+// prints: ["apple", "orange", "banana"]
+console.log(fruitsCollection.getObjects());
+ 
+fruitsCollection.removeObject("apple");
+ 
+// prints: ["orange", "banana"]
+console.log(fruitsCollection.getObjects());

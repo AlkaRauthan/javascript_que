@@ -116,3 +116,16 @@ window since arrow function
 "Vivek"
 undefined
 "Vivek" 
+-----------------------------------------------------
+  (function(a){
+  return (function(){
+    console.log(a);
+    a = 23;
+  })()
+})(45);
+
+outputs 45
+
+----------------------------------------------
+
+  

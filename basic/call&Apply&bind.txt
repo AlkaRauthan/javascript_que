@@ -4,8 +4,9 @@ it helps you replace the value of this inside a function with whatever value you
 let name = {
     firstname:"alka",
     lastname:"rauthan",
+    subject: "cs",
     printFullName: function(){
-        console.log(this.firstname + "" + this.lastname)
+        console.log(this.firstname + "" + this.lastname + "" + this.subject)
     }
 }
 name.printFullName();

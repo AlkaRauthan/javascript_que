@@ -8,7 +8,10 @@ xyz(); //will throw error xyz is not defined
 
 //Difference between parameters and arguments
 var b = function(param1,param2){} - param1 and param 2 are parameter of function
-b(1,2) - 1 and 2 are arguments
+b(1,2) - 1 and 2 are arguments 
+----------
+A parameter is one of the variables in a function. 
+And when a method is called, the arguments are the data you pass into the method's parameters.
 
 //First class functions
 the ability to use functions as values is first class functions

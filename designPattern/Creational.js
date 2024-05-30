@@ -93,6 +93,24 @@ console.log(alien1.name) // output "Ali"
 console.log(alien1.phrase) // output "I'm Ali the alien!"
 alien1.fly() // output "Zzzzzziiiiiinnnnnggggg"
 
+/////
+Defines an interface for creating an object but lets subclasses alter the type of objects that will be created.
+class Product {
+  display() {
+    console.log("Product");
+  }
+}
+
+class ProductFactory {
+  createProduct() {
+    return new Product();
+  }
+}
+
+const factory = new ProductFactory();
+const product = factory.createProduct();
+product.display(); // Product
+
 --------------------------------------------------------------------------------------------------------------
 Abstract factory pattern
   The Abstract Factory pattern allows us to produce families of related objects without specifying concrete classes.

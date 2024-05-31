@@ -28,3 +28,14 @@ Function.prototype.myApply= function (context,args){
   context.fnc(...args);
 }
 sayIntro.myApply(objIntro,["cognizant","gurgaon"])
+
+Function.prototype.myBind= function (context,args){
+  if(typeof this !=="function"){
+    throw new Error(this,"invalid call")
+  }
+  context.fnc = this;
+  return function (){
+    context.fnc(...args);
+  }
+}
+sayIntro.myBind(objIntro,["cognizant","gurgaon"])

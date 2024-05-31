@@ -1,5 +1,6 @@
 The fetch API is a JavaScript API for making HTTP requests. 
-  It is a replacement for XMLHttpRequest, which is deprecated in most browsers. It is a promise-based API, meaning that it returns a Promise object that is resolved or rejected when the request is complete.
+  It is a replacement for XMLHttpRequest, which is deprecated in most browsers. 
+  It is a promise-based API, meaning that it returns a Promise object that is resolved or rejected when the request is complete.
 
 Let's take a look at the fetch() function.
 fetch(url)
@@ -9,7 +10,8 @@ fetch(url)
 
 This is great but sometimes we want to cancel the already initiated request.
 Let's take a look at the following example.
-Suppose we have search input we want to show the suggestions as the user types. when the user types a character, we call the fetch() function and pass the value of the search input field as the URL parameter.
+Suppose we have search input we want to show the suggestions as the user types. when the user types a character, 
+  we call the fetch() function and pass the value of the search input field as the URL parameter.
 
 Problem:
 The fetch() function is called every time the user types a character, 
@@ -17,11 +19,14 @@ This is an inefficient approach as it is called multiple times and we are only i
 
 Solution:
 Use debounce() function to limit the number of times the fetch() function is called. 
-It will only be called after the user has stopped typing for a certain period (100ms). This is a good practice to avoid unnecessary calls to the API.
-Edge case: What if the user starts typing just after debounce() has been called. In that case, the fetch() function will be called again. It's better than the previous approach.
+It will only be called after the user has stopped typing for a certain period (100ms). 
+This is a good practice to avoid unnecessary calls to the API.
+Edge case: What if the user starts typing just after debounce() has been called. In that case,
+  the fetch() function will be called again. It's better than the previous approach.
 
 How can we handle this?
-This is where AbortController comes in handy. We can use AbortController to cancel the already initiated request(using fetch). The modern browsers come with a built-in AbortController interface.
+This is where AbortController comes in handy. We can use AbortController to cancel the already initiated request(using fetch).
+The modern browsers come with a built-in AbortController interface.
 
 You can create a new AbortController object using the AbortController() constructor.
 

@@ -1,0 +1,11 @@
+=> Load Javascript asynchronously
+  - with <script src="main.js">, html parsing is blocked unless script is downloaded and executed.
+  - we can put async in <script>, with async html parsing is not blocked during download time but while execution it needs to be blocked.
+  - with defer, download and execution happens in parallel. html parsing is not blocked
+
+=> Lazy loading
+  - loading="eager" or loading="lazy" in img or iframe
+  - fetchpriority="low"
+  - IntersectionObserver()
+  - content-visibility: auto in css to improve performance
+  -

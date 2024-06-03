@@ -1,0 +1,48 @@
+=> Micro-frontend
+
+=> Communication
+  - Long polling (Web sockets) 
+  - Server sent events
+
+=> Availability
+  - Offline support
+  - Service worker
+
+=> Accessibility
+  - Keyboard accessibility
+  - screen reader
+
+=> Consistency
+  -Css properties
+  - pollyfills
+
+=> Credibility & trust
+  - SEO
+
+=> Logging & Monitoring
+  - Error logging
+  - User tracking
+  - User activity
+  - Infra and capactity monitoring
+
+=> Database & Caching
+  - HTTP caching 
+  - In memory caching
+  - State management (Redux, context)
+  - Local storage,session storage, cookies and indexed DB
+
+=> Security
+  - Authentication & authorization
+  - CSP
+  - CORS
+
+=> Performance & Optimization
+  - Assets Optimisation
+  - Delivery option
+  - Build assets (Bundle size)
+  - SSR
+  - Service Worker
+  - Web vitals
+  - Perceived performance
+
+=> Testing

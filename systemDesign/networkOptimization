@@ -8,4 +8,24 @@
   - fetchpriority="low"
   - IntersectionObserver()
   - content-visibility: auto in css to improve performance
-  -
+
+=> Resource hinting
+- <link rel="stylesheet" href="styles.css">
+- dns-prefetch:	Specifies that the browser should preemptively perform DNS resolution for the target resource's origin
+- preconnect	Specifies that the browser should preemptively connect to the target resource's origin.
+- prerender	Specifies that the browser should pre-render (load) the specified webpage in the background. 
+  So, if the user navigates to this page, it speeds up the page load (because the page is already loaded). 
+  Warning! This wastes the user's bandwidth! Only use prerender if you are absolutely sure that the webpage is required at some point in the user's journey
+
+=> Service worker caching
+  - Service workers essentially act as proxy servers that sit between web applications, the browser, and the network (when available). 
+    They are intended, among other things, to enable the creation of effective offline experiences, 
+    intercept network requests and take appropriate action based on whether the network is available, and update assets residing on the server. 
+    They will also allow access to push notifications and background sync APIs.
+
+=> CSR, SSR
+  - Client side rendering, Server side rendering
+
+=> Compression
+ - brotli/gzip
+    content-encoding: br

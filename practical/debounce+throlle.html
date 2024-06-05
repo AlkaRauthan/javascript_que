@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css">
+    <title>Debounce&Throttle</title>
+  </head>
+  <body>
+    <input type="text" value="" id="textId" placeholder="please enter text" onkeyup="betterDebounceFunction(event.target.value)">
+    <button style="display: block;" onclick="onShootClick()">Shoot</button>
+    <script>
+      function apiCallToFetchData(args){
+        console.log('debounce call',args)
+      }
+
+      function apiCallToGetData(args){
+        console.log('throttling call',args)
+      }
+
+      function debounceFunction(callbackFn,delay){
+        let timer;
+        return function(){
+          let context = this;
+          let args = arguments;
+          if(timer){
+            clearTimeout(timer);
+          }
+            timer = setTimeout(() => {
+              callbackFn.apply(context,args)
+            },delay)
+        }
+      }
+
+      const betterDebounceFunction = debounceFunction(apiCallToFetchData,3000);
+
+      function throlleFunction(callbackFn,delay){
+        let flag = true;
+        return function(){
+          let context = this;
+          let args = arguments;
+          if(flag){
+            callbackFn.apply(context,args);
+            flag = false;
+            setTimeout(() => {
+              flag = true;
+            },delay);
+          }
+
+        }
+      }
+
+      const onShootClick = throlleFunction(apiCallToGetData,3000);
+
+
+
+    </script>
+  </body>
+</html>

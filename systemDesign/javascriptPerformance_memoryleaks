@@ -1,0 +1,13 @@
+=> Accidental global variabls
+=> forgotten timers or callbacks
+=> remove event listeners if not required
+=> Out of DOM references
+   const a =  document.getElementById("ref1");
+    document.removeChild(document.getElementById("ref1");
+    even though ref1 element is deleted from the end, a still has its reference
+=> Reference obect cycle
+=> Forget to disconnect observer
+      - resize observer
+      - call unobserve/disconnect
+      same for IntersectionObserver()
+      

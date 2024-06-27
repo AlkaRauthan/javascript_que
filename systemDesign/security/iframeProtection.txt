@@ -1,0 +1,15 @@
+HTML element that loads another HTML page within the document
+The iFrame is a common technique to embed webpages, videos, or maps in another web page.
+Despite its popularity, iFrames carry several security risks that could let in attackers if we do not take the necessary security steps.
+
+Vulnerability
+- Clickhijacking
+- Data theft 
+- Session & Cookie theft
+
+Mitigation
+- X-FRAME-OPTIONS: DENY/ACCEPT
+- CSP:frameancestors:self
+ Content-Security-Policy; "frameancestors 'none'"
+-sandbox="allow-same-origin" // to restrict script execution , should be set on iframe
+- for cookie httpOnly= true,secure=true

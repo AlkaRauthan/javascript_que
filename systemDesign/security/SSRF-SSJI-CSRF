@@ -1,0 +1,25 @@
+Server side request forgery (SSRF)
+- should validate the url
+- lack of whitelisting
+- Insufficient access control
+- XML External Entity
+
+Server Side javascript injection (SSJI)
+- Inadequate input validation
+- Direct execution of user provided code
+- Using dangerous function
+- Insecure deserialisation
+
+Cross site request forgery (CSRF)
+- someother website click is leading to our bank  for fund transfer
+
+Mitigation  - 
+  -Anti CSRF token , in form submit send csrftoken, 
+  csrf token we will be receveving from the server injected into html.
+  everytime ui is loaded , new csrf token is generated
+  - Same site cookies
+    .setHeaders('Set-Cookie','SameSite=Strict;Secure')
+- Referer based validation
+- Use captcha
+- CSP Header
+

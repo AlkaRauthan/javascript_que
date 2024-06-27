@@ -1,0 +1,28 @@
+Cross-site Scripting (XSS) occur when an attacker injects browser executable code within a single HTTP response. 
+The injected attack is not stored within the application itself;
+
+attcker can inject script in queryParam which might be getting binded to innerHTML in DoM.
+
+Vulnerabilities
+- User session hijacking 
+- Unauthorized activities
+- Capturing keystrokes
+- Stealing critical information
+- Phising attack
+
+
+
+Mitigation
+- Replace innerHTML with textContent or innerText
+- List out all the use inputs in application
+- Escape meaning replace the problematic script tag or may be img from user input
+- Avoid using eval
+- Sanatize: DOMPurify
+    DOMPurify.santize(name)
+- CSP Headers
+    Content Security policy
+    - allowed sources
+    - Script nounces
+    - Report-only mode
+
+    res.setHeader('Content-Security-Policy',"default-src 'self';" + "script-src 'self' http://somesource.com;")

@@ -1,0 +1,51 @@
+Client side security
+- Storing sensitive information on the client
+    - prefer saving sensitive data on server
+    - encrypt the data
+    - token expiry
+- Authentication
+    -JWT/OAuth
+    - session token expiry
+    - MFA - Multi factor authentication
+- Data Integrity
+    - checksum
+- Storage Limit
+    - check for 'storage' in navigator to check for storage estimate
+      localstorage - 5 to 10mb
+      session - 5 to 10 mb
+      indexDb - 50MB to 100mb
+      cookie - 4kb
+      cache - 100mb
+  - Session Management
+    document.cookie = `sessionId${sessionId}; HttpOnly; Secure
+    by doing this this cookie cannot be read by javascript script , it can be only read by http request
+----------------------------------------------------------------------------------------------------------
+HTTPS
+- gives data encryption , when data is getting transferred between client and server it is not readable(TLS)
+- Authentication it uses certifications for encryption, which is basically SSL
+- Data Integrity - data is not changed in between , varification is done by checksum(MAC - message authentication code)
+- Protection Against Phising - 
+----------------------------------------------------------------------------
+Security Headers
+
+X-Powered-By
+gives the server X_Powered_By: Express
+- we should remove this header to keep the server information private
+
+Referrer-Policy
+- from where user is getting redirected or reaching to certain page is stored in this header Referer
+- Referrer-Policy: no-referrer
+
+X-Content-Type-Option
+  res.setHeader(X-Content-Type-Option,"nosniff")
+  - it basically speaks about not changing the content type option based on response
+
+X-XSS-Protection
+  - when this is set browser will not allow XSS
+  - X-XSS-Protection: 0/1
+
+HSTS -
+HTTP Strict Transport security
+if req.headers['x-forwarded-proto'] !== 'https'
+res.redirect(['https://',req.get('Host'),req.url].join("")])
+Strict-Transport-Security - to redirect from http to https route

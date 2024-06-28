@@ -26,3 +26,5 @@ Mitigation
     - Report-only mode
 
     res.setHeader('Content-Security-Policy',"default-src 'self';" + "script-src 'self' http://somesource.com;")
+
+Content-Security-Policy: default-src 'self'

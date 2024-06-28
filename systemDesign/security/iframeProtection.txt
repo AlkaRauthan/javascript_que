@@ -13,3 +13,7 @@ Mitigation
  Content-Security-Policy; "frameancestors 'none'"
 -sandbox="allow-same-origin" // to restrict script execution , should be set on iframe
 - for cookie httpOnly= true,secure=true
+
+Defense against framing attacks¶
+Attacks like clickjacking and some variants of browser side-channel attacks (xs-leaks) require a malicious website to load the target website in a frame.
+Historically the X-Frame-Options header has been used for this, but it has been obsoleted by the frame-ancestors CSP directive.

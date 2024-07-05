@@ -3,12 +3,19 @@ Core web vitals
 => LCP - Loading
     Largest contentful paint
     - time to load and paint most of our web page
+     - Largest Contentful Paint (LCP) is an important, stable Core Web Vital metric for measuring perceived load speed 4
+        because it marks the point in the page load timeline when the page's main content has likely 
+        loaded—a fast LCP helps reassure the user that the page is useful
 => FID - Interactivity
     First input delay
     - delay in first interaction, like clicking on button or link
+    - a web performance and user experience metric that tracks the time 
+      from when a visitor first interacts with a web page to the time when the browser starts processing the interaction
 => CLS - Visual stability
     Cumulative layout shift
     - Like scroll and jerk in the application when loading rest of the page/ application
+    - Unexpected layout shifts can disrupt the user experience in many ways, from causing them to lose 
+    their place while reading if the text moves suddenly, to making them click the wrong link or button. In some cases, this can do serious damage.
 => INP - 
     Interaction to next paint
     -Worst interaction to paint, it will take in account all of the interactions and pick out the worst one

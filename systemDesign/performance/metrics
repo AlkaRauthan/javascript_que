@@ -36,3 +36,6 @@ Core web vitals
        - First Input delay
        - Cumulative layout shift
        - Iteraction to next paint
+--------------------------------------------------
+
+=> Page speed insights and Lighthouse are the tools to check these metrics

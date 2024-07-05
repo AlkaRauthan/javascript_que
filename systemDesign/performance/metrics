@@ -1,0 +1,31 @@
+Core web vitals
+
+=> LCP - Loading
+    Largest contentful paint
+    - time to load and paint most of our web page
+=> FID - Interactivity
+    First input delay
+    - delay in first interaction, like clicking on button or link
+=> CLS - Visual stability
+    Cumulative layout shift
+    - Like scroll and jerk in the application when loading rest of the page/ application
+=> INP - 
+    Interaction to next paint
+    -Worst interaction to paint, it will take in account all of the interactions and pick out the worst one
+
+----------------------------------------------------
+    => Brower center metric
+      - Time to first Byte (TTFB)
+      - Network Requests
+      - DNS Resolution 
+      - Connection Time
+      - DOM content loaded
+      - Page load
+      
+    => User Center metric
+
+       - First Contentful paint
+       - Largest contentful paint
+       - First Input delay
+       - Cumulative layout shift
+       - Iteraction to next paint
